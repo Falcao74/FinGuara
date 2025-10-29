@@ -11,12 +11,21 @@
     <link href="{{ url_for('static', filename='css/i18n.css') }}" rel="stylesheet">
   </head>
   <body class="bg-cover">
+    <script>
+      // Função global para fallback de logo sem conflitos de linter
+      const LOGO_FALLBACK_URL = {{ url_for('static', filename='logo-fallback.svg') | tojson }};
+      function setLogoFallback(img){
+        if(!img) return;
+        img.onerror = null;
+        img.src = LOGO_FALLBACK_URL;
+      }
+    </script>
     {% if current_user.is_authenticated %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="{{ url_for('main.dashboard') }}">
           <img src="{{ url_for('static', filename='logotipo.png') }}" alt="{{ _('common.accessibility.logo_alt') }}" height="28" class="me-2"
-               onerror='this.onerror=null;this.src={{ url_for("static", filename="logo-fallback.svg") | tojson }};'> {{ _('common.app_name') }}
+               onerror="setLogoFallback(this)"> {{ _('common.app_name') }}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="{{ _('common.navigation.menu') }}">
           <span class="navbar-toggler-icon"></span>
