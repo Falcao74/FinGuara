@@ -1,11 +1,16 @@
 {
   "app_name": "Expense Tracker",
   "navigation": {
+    "menu": "Menu",
     "home": "Home",
     "dashboard": "Dashboard",
     "transactions": "Transactions",
     "banks": "Banks",
     "accounts": "Accounts",
+    "registrations": "Registrations",
+    "users": "Users",
+    "expenses": "Expenses",
+    "income": "Income",
     "reports": "Reports",
     "settings": "Settings",
     "profile": "Profile",
@@ -74,12 +79,16 @@
     "required_field_indicator": "Required field",
     "sort_ascending": "Sort ascending",
     "sort_descending": "Sort descending",
-    "page_navigation": "Page navigation"
+    "page_navigation": "Page navigation",
+    "logo_alt": "Application logo"
   },
   "language": {
     "portuguese": "Portuguese",
     "english": "English", 
     "spanish": "Spanish",
+    "portuguese_short": "BR",
+    "english_short": "US",
+    "spanish_short": "ES",
     "select_language": "Select Language",
     "language_changed": "Language changed to {language}"
   },
@@ -93,5 +102,9 @@
     "format": "${amount}",
     "decimal_separator": ".",
     "thousand_separator": ","
+  },
+  "footer": {
+    "copyright": "© 2025 FinGuara. All rights reserved.",
+    "promo": "Track your finances with ease."
   }
 }

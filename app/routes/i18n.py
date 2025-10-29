@@ -26,7 +26,7 @@ def set_language(language):
             return jsonify({
                 'success': True,
                 'language': language,
-                'message': i18n.translate('language_changed', language=i18n.translate(f'language.{language.replace("-", "_").lower()}'))
+                'message': i18n.translate('language.language_changed', language=i18n.translate(f'language.{language.replace('-', '_').lower()}'))
             })
         else:
             return jsonify({
@@ -37,6 +37,25 @@ def set_language(language):
         # Redirect para a página anterior ou dashboard
         next_page = request.form.get('next') or request.referrer or url_for('main.dashboard')
         return redirect(next_page)
+
+
+@bp.route('/set-language', methods=['POST'])
+def set_language_json():
+    """Aceita POST JSON com { language } para compatibilidade do seletor antigo."""
+    if request.is_json:
+        data = request.get_json(silent=True) or {}
+        language = data.get('language')
+        if not language:
+            return jsonify({ 'success': False, 'error': 'Parâmetro ausente: language' }), 400
+        success = i18n.set_language(language)
+        if success:
+            return jsonify({
+                'success': True,
+                'language': language,
+                'message': i18n.translate('language.language_changed', language=i18n.translate(f'language.{language.replace('-', '_').lower()}'))
+            })
+        return jsonify({ 'success': False, 'error': 'Idioma não suportado' }), 400
+    return jsonify({ 'success': False, 'error': 'Conteúdo deve ser JSON' }), 400
 
 
 @bp.route('/get-language', methods=['GET'])

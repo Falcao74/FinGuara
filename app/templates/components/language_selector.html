@@ -4,59 +4,59 @@ Permite alternar entre português, inglês e espanhol
 Inclui recursos de acessibilidade e suporte para usuários com autismo
 -->
 
-<div class="language-selector" id="languageSelector" role="region" aria-label="{{ _('common.accessibility.language_selector') }}">
+<div class="language-selector" id="languageSelector" role="region" aria-label="{{ _('accessibility.language_selector') }}">
     <!-- Versão com botões (padrão) -->
     <div class="language-buttons" id="languageButtons">
         <button type="button" 
                 class="language-button {% if get_current_language() == 'pt-BR' %}active{% endif %}" 
                 data-language="pt-BR"
                 aria-pressed="{% if get_current_language() == 'pt-BR' %}true{% else %}false{% endif %}"
-                title="{{ _('common.languages.portuguese') }}">
+                title="{{ _('language.portuguese') }}">
             <span class="language-flag pt-br" aria-hidden="true"></span>
-            <span class="language-text">{{ _('common.languages.portuguese_short') }}</span>
-            <span class="sr-only">{{ _('common.accessibility.select_language', language=_('common.languages.portuguese')) }}</span>
+            <span class="language-text">{{ _('language.portuguese_short') }}</span>
+            <span class="sr-only">{{ _('language.select_language', language=_('language.portuguese')) }}</span>
         </button>
         
         <button type="button" 
                 class="language-button {% if get_current_language() == 'en-US' %}active{% endif %}" 
                 data-language="en-US"
                 aria-pressed="{% if get_current_language() == 'en-US' %}true{% else %}false{% endif %}"
-                title="{{ _('common.languages.english') }}">
+                title="{{ _('language.english') }}">
             <span class="language-flag en-us" aria-hidden="true"></span>
-            <span class="language-text">{{ _('common.languages.english_short') }}</span>
-            <span class="sr-only">{{ _('common.accessibility.select_language', language=_('common.languages.english')) }}</span>
+            <span class="language-text">{{ _('language.english_short') }}</span>
+            <span class="sr-only">{{ _('language.select_language', language=_('language.english')) }}</span>
         </button>
         
         <button type="button" 
                 class="language-button {% if get_current_language() == 'es-ES' %}active{% endif %}" 
                 data-language="es-ES"
                 aria-pressed="{% if get_current_language() == 'es-ES' %}true{% else %}false{% endif %}"
-                title="{{ _('common.languages.spanish') }}">
+                title="{{ _('language.spanish') }}">
             <span class="language-flag es-es" aria-hidden="true"></span>
-            <span class="language-text">{{ _('common.languages.spanish_short') }}</span>
-            <span class="sr-only">{{ _('common.accessibility.select_language', language=_('common.languages.spanish')) }}</span>
+            <span class="language-text">{{ _('language.spanish_short') }}</span>
+            <span class="sr-only">{{ _('language.select_language', language=_('language.spanish')) }}</span>
         </button>
     </div>
     
     <!-- Versão dropdown (alternativa para espaços menores) -->
     <select class="language-selector-dropdown d-none" 
             id="languageDropdown" 
-            aria-label="{{ _('common.accessibility.language_selector') }}">
+            aria-label="{{ _('accessibility.language_selector') }}">
         <option value="pt-BR" {% if get_current_language() == 'pt-BR' %}selected{% endif %}>
-            🇧🇷 {{ _('common.languages.portuguese') }}
+            🇧🇷 {{ _('language.portuguese') }}
         </option>
         <option value="en-US" {% if get_current_language() == 'en-US' %}selected{% endif %}>
-            🇺🇸 {{ _('common.languages.english') }}
+            🇺🇸 {{ _('language.english') }}
         </option>
         <option value="es-ES" {% if get_current_language() == 'es-ES' %}selected{% endif %}>
-            🇪🇸 {{ _('common.languages.spanish') }}
+            🇪🇸 {{ _('language.spanish') }}
         </option>
     </select>
     
     <!-- Indicador do idioma atual -->
     <div class="current-language-indicator d-none" id="currentLanguageIndicator">
         <span class="language-flag {{ get_current_language().lower().replace('-', '-') }}" aria-hidden="true"></span>
-        <span class="sr-only">{{ _('common.accessibility.current_language') }}:</span>
+        <span class="sr-only">{{ _('accessibility.current_language') }}:</span>
         <span id="currentLanguageText">{{ get_language_name(get_current_language()) }}</span>
     </div>
 </div>
@@ -92,36 +92,32 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Função para trocar idioma
     function changeLanguage(language) {
-        // Adiciona classe de carregamento
         document.body.classList.add('language-loading');
-        
-        // Faz requisição para trocar idioma
-        fetch('/i18n/set-language', {
+        // Use o gerenciador client-side quando disponível
+        if (window.I18n && typeof window.I18n.setLanguage === 'function') {
+            window.I18n.setLanguage(language);
+            document.body.classList.remove('language-loading');
+            return;
+        }
+        // Fallback: chama a rota com parâmetro na URL
+        fetch(`/i18n/set-language/${language}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'X-Requested-With': 'XMLHttpRequest'
-            },
-            body: JSON.stringify({ language: language })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Atualiza interface usando i18n.js se disponível
-                if (window.I18n) {
-                    window.I18n.setLanguage(language);
-                } else {
-                    // Fallback: recarrega a página
-                    window.location.reload();
-                }
-                
-                showNotification(data.message || 'Idioma alterado com sucesso');
-            } else {
-                showNotification(data.message || 'Erro ao alterar idioma', 'error');
             }
         })
-        .catch(error => {
-            console.error('Erro ao alterar idioma:', error);
+        .then(r => r.json())
+        .then(data => {
+            if (data && data.success) {
+                showNotification(data.message || 'Idioma alterado com sucesso');
+                window.location.reload();
+            } else {
+                showNotification((data && data.message) || 'Erro ao alterar idioma', 'error');
+            }
+        })
+        .catch(err => {
+            console.error('Erro ao alterar idioma:', err);
             showNotification('Erro ao alterar idioma', 'error');
         })
         .finally(() => {

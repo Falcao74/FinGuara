@@ -3,11 +3,17 @@
     "name": "FinGuará",
     "tagline": "Sistema de Gerenciamento Financeiro Pessoal"
   },
+  "app_name": "FinGuará",
   "navigation": {
+    "menu": "Menu",
     "dashboard": "Dashboard",
     "transactions": "Transações",
     "banks": "Bancos",
     "accounts": "Contas",
+    "registrations": "Cadastros",
+    "users": "Usuários",
+    "expenses": "Despesas",
+    "income": "Receitas",
     "logout": "Sair",
     "language": "Idioma"
   },
@@ -60,8 +66,24 @@
     "skip_to_content": "Pular para o conteúdo principal",
     "menu_toggle": "Alternar menu de navegação",
     "language_selector": "Seletor de idioma",
+    "current_language": "Idioma atual: {language}",
+    "logo_alt": "Logotipo do aplicativo",
     "close_dialog": "Fechar diálogo",
     "open_menu": "Abrir menu",
     "loading_content": "Carregando conteúdo"
+  },
+  "language": {
+    "portuguese": "Português",
+    "english": "Inglês",
+    "spanish": "Espanhol",
+    "portuguese_short": "BR",
+    "english_short": "US",
+    "spanish_short": "ES",
+    "select_language": "Selecionar Idioma",
+    "language_changed": "Idioma alterado para {language}"
+  },
+  "footer": {
+    "copyright": "© 2025 FinGuará. Todos os direitos reservados.",
+    "promo": "Acompanhe suas finanças com facilidade."
   }
 }

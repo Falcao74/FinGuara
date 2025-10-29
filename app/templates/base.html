@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{{ _('common.app_name') }}{% endblock %}</title>
+    <title>{% block title %}{{ _('app_name') }}{% endblock %}</title>
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -24,25 +24,25 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="{{ url_for('main.dashboard') }}">
-          <img src="{{ url_for('static', filename='logotipo.png') }}" alt="{{ _('common.accessibility.logo_alt') }}" height="28" class="me-2"
-               onerror="setLogoFallback(this)"> {{ _('common.app_name') }}
+          <img src="{{ url_for('static', filename='logotipo.png') }}" alt="{{ _('accessibility.logo_alt') }}" height="28" class="me-2"
+               onerror="setLogoFallback(this)"> {{ _('app_name') }}
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="{{ _('common.navigation.menu') }}">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="{{ _('navigation.menu') }}">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto align-items-center">
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('main.dashboard') }}">{{ _('common.navigation.dashboard') }}</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('main.transactions') }}">{{ _('common.navigation.transactions') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('main.dashboard') }}">{{ _('navigation.dashboard') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('main.transactions') }}">{{ _('navigation.transactions') }}</a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="cadastrosMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ _('common.navigation.registrations') }}</a>
+              <a class="nav-link dropdown-toggle" href="#" id="cadastrosMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ _('navigation.registrations') }}</a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cadastrosMenu">
-                <li><a class="dropdown-item" href="{{ url_for('auth.signup') }}">{{ _('common.navigation.users') }}</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('main.banks') }}">{{ _('common.navigation.banks') }}</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('main.accounts') }}">{{ _('common.navigation.accounts') }}</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('auth.signup') }}">{{ _('navigation.users') }}</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('main.banks') }}">{{ _('navigation.banks') }}</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('main.accounts') }}">{{ _('navigation.accounts') }}</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{{ url_for('main.transactions') }}#nova-despesa">{{ _('common.navigation.expenses') }}</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('main.transactions') }}#nova-receita">{{ _('common.navigation.income') }}</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('main.transactions') }}#nova-despesa">{{ _('navigation.expenses') }}</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('main.transactions') }}#nova-receita">{{ _('navigation.income') }}</a></li>
               </ul>
             </li>
           </ul>
@@ -52,7 +52,7 @@
             {% include 'components/language_selector.html' %}
             <div class="nav-item ms-3 d-flex align-items-center">
               <span class="text-white me-2">Olá, {{ current_user.username.split('@')[0] }}</span>
-              <a class="btn btn-outline-light" href="{{ url_for('auth.logout') }}">{{ _('common.actions.logout') }}</a>
+              <a class="btn btn-outline-light" href="{{ url_for('auth.logout') }}">{{ _('navigation.logout') }}</a>
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@
       <div class="toast align-items-center text-bg-{{ bg }} border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="4000">
         <div class="d-flex">
           <div class="toast-body">{{ message }}</div>
-          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="{{ _('common.actions.close') }}"></button>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="{{ _('actions.close') }}"></button>
         </div>
       </div>
       {% endfor %}
@@ -82,9 +82,9 @@
     </div>
     <footer class="site-footer bg-dark text-white">
       <div class="container py-3 d-flex flex-column flex-sm-row align-items-center justify-content-between">
-      <div class="small">{{ _('common.footer.copyright') }}</div>
+      <div class="small">{{ _('footer.copyright') }}</div>
       <div class="small">
-        {{ _('common.footer.promo') }}
+        {{ _('footer.promo') }}
         <a href="mailto:guaraci.nascimento@outlook.com" class="text-white">guaraci.nascimento@outlook.com</a>
       </div>
       </div>

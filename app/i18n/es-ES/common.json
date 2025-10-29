@@ -1,11 +1,16 @@
 {
   "app_name": "Control de Gastos",
   "navigation": {
+    "menu": "Menú",
     "home": "Inicio",
     "dashboard": "Panel",
     "transactions": "Transacciones",
     "banks": "Bancos",
     "accounts": "Cuentas",
+    "registrations": "Registros",
+    "users": "Usuarios",
+    "expenses": "Gastos",
+    "income": "Ingresos",
     "reports": "Informes",
     "settings": "Configuración",
     "profile": "Perfil",
@@ -67,6 +72,7 @@
     "menu_toggle": "Alternar menú de navegación",
     "language_selector": "Seleccionar idioma",
     "current_language": "Idioma actual: {language}",
+    "logo_alt": "Logotipo de la aplicación",
     "close_dialog": "Cerrar diálogo",
     "loading_content": "Cargando contenido, por favor espere",
     "error_message": "Mensaje de error",
@@ -80,6 +86,9 @@
     "portuguese": "Portugués",
     "english": "Inglés", 
     "spanish": "Español",
+    "portuguese_short": "BR",
+    "english_short": "US",
+    "spanish_short": "ES",
     "select_language": "Seleccionar Idioma",
     "language_changed": "Idioma cambiado a {language}"
   },
@@ -93,5 +102,9 @@
     "format": "{amount} €",
     "decimal_separator": ",",
     "thousand_separator": "."
+  },
+  "footer": {
+    "copyright": "© 2025 FinGuara. Todos los derechos reservados.",
+    "promo": "Administra tus finanzas con facilidad."
   }
 }
