@@ -10,14 +10,14 @@
     <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/i18n.css') }}" rel="stylesheet">
   </head>
-  <body class="bg-cover">
+  <body class="bg-cover" data-logo-fallback-url="{{ url_for('static', filename='logo-fallback.svg') }}">
     <script>
-      // Função global para fallback de logo sem conflitos de linter
-      const LOGO_FALLBACK_URL = {{ url_for('static', filename='logo-fallback.svg') | tojson }};
+      // Função global para fallback de logo sem Jinja dentro do JS
+      const LOGO_FALLBACK_URL = document.body?.dataset?.logoFallbackUrl || '';
       function setLogoFallback(img){
         if(!img) return;
         img.onerror = null;
-        img.src = LOGO_FALLBACK_URL;
+        if(LOGO_FALLBACK_URL){ img.src = LOGO_FALLBACK_URL; }
       }
     </script>
     {% if current_user.is_authenticated %}
