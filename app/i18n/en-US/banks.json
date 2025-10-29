@@ -1,0 +1,68 @@
+{
+  "title": "Banks",
+  "add_bank": "New Bank",
+  "edit_bank": "Edit Bank",
+  "bank_list": "Bank List",
+  "fields": {
+    "name": "Bank Name",
+    "code": "Code",
+    "website": "Website",
+    "phone": "Phone",
+    "notes": "Notes"
+  },
+  "placeholders": {
+    "name": "e.g., Chase Bank",
+    "code": "e.g., 001",
+    "website": "https://www.bank.com",
+    "phone": "(555) 123-4567",
+    "notes": "Additional information about the bank"
+  },
+  "messages": {
+    "created_success": "Bank created successfully",
+    "updated_success": "Bank updated successfully",
+    "deleted_success": "Bank deleted successfully",
+    "error_creating": "Error creating bank",
+    "error_updating": "Error updating bank",
+    "error_deleting": "Error deleting bank",
+    "confirm_delete": "Are you sure you want to delete this bank?",
+    "no_banks": "No banks registered",
+    "has_accounts": "Cannot delete bank with active accounts"
+  },
+  "accounts": {
+    "title": "Accounts",
+    "add_account": "New Account",
+    "edit_account": "Edit Account",
+    "account_list": "Account List",
+    "fields": {
+      "name": "Account Name",
+      "type": "Account Type",
+      "number": "Number",
+      "agency": "Branch",
+      "balance": "Initial Balance",
+      "notes": "Notes"
+    },
+    "types": {
+      "checking": "Checking Account",
+      "savings": "Savings Account",
+      "investment": "Investment Account",
+      "credit": "Credit Card"
+    },
+    "placeholders": {
+      "name": "e.g., Main Account",
+      "number": "12345-6",
+      "agency": "1234",
+      "balance": "0.00",
+      "notes": "Additional information about the account"
+    },
+    "messages": {
+      "created_success": "Account created successfully",
+      "updated_success": "Account updated successfully",
+      "deleted_success": "Account deleted successfully",
+      "error_creating": "Error creating account",
+      "error_updating": "Error updating account",
+      "error_deleting": "Error deleting account",
+      "confirm_delete": "Are you sure you want to delete this account?",
+      "no_accounts": "No accounts registered"
+    }
+  }
+}

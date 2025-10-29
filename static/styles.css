@@ -1,0 +1,97 @@
+/* Background full viewport */
+html, body { height: 100%; }
+.bg-cover {
+  background-image: url('/static/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Rodapé promocional fixo */
+.site-footer {
+  position: fixed;
+  bottom: 1px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1030; /* acima do conteúdo */
+}
+.site-footer a { text-decoration: underline; }
+
+/* Evitar sobreposição do rodapé sobre o conteúdo */
+.content-wrap { padding-bottom: 64px; }
+
+/* Center helper for login */
+.full-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tema visual refinado */
+:root {
+  --brand-primary: #0d6efd;
+  --brand-secondary: #6610f2;
+}
+
+.auth-card {
+  border: none;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  animation: floatIn .5s ease-in-out;
+}
+
+.brand-logo {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.25));
+}
+
+.btn-primary {
+  background-image: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+  border: none;
+}
+.btn-primary:hover { filter: brightness(1.05); }
+
+.btn-success {
+  background-image: linear-gradient(135deg, #28a745, #20c997);
+  border: none;
+}
+.btn-success:hover { filter: brightness(1.05); }
+
+.input-group-text { background-color: rgba(13,110,253,.08); }
+.form-control:focus { border-color: var(--brand-primary); box-shadow: 0 0 0 .2rem rgba(13,110,253,.25); }
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-card {
+  backdrop-filter: blur(2px);
+  background-color: rgba(255,255,255,0.92);
+  border-radius: 12px;
+  line-height: 1.25;
+}
+.login-card .form-label { margin-bottom: .25rem; }
+.login-card .form-text { margin-top: .25rem; }
+.login-card .input-group .form-control { padding-top: .375rem; padding-bottom: .375rem; }
+.login-card .btn { padding: .5rem .75rem; }
+
+/* Responsivo: otimiza login em telas pequenas sem rolagem excessiva */
+@media (max-width: 576px) {
+  #login-area { padding: .5rem; }
+  .login-card { border-radius: 10px; }
+  .login-card.card { padding: .75rem !important; }
+}
+
+/* Tabelas e badges refinadas */
+.table thead th { background: rgba(0,0,0,.03); }
+.table-striped tbody tr:nth-of-type(odd) { background: rgba(255,255,255,.85); }
+.table-striped tbody tr:nth-of-type(even) { background: rgba(255,255,255,.75); }
+.badge { padding: .5em .75em; border-radius: .6rem; }
+
+/* Navbar gradiente após login */
+.navbar-dark.bg-dark { background: linear-gradient(90deg, #0d6efd, #6610f2) !important; }

@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Env
+env/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project
+finance.db
+.pytest_cache/

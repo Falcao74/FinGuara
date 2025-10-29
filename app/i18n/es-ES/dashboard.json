@@ -1,0 +1,36 @@
+{
+  "title": "Panel de Control",
+  "welcome": "Hola, {username}",
+  "summary": {
+    "title": "Resumen del Mes",
+    "expenses": "Gastos",
+    "incomes": "Ingresos", 
+    "balance": "Saldo",
+    "positive_balance": "Saldo positivo",
+    "negative_balance": "Saldo negativo"
+  },
+  "upcoming": {
+    "title": "Próximas Facturas",
+    "no_bills": "No hay facturas pendientes",
+    "due_date": "Fecha de Vencimiento",
+    "amount": "Importe",
+    "description": "Descripción",
+    "status": "Estado",
+    "view_all": "Ver todas las transacciones"
+  },
+  "quick_actions": {
+    "title": "Acciones Rápidas",
+    "add_expense": "Añadir Gasto",
+    "add_income": "Añadir Ingreso",
+    "manage_accounts": "Gestionar Cuentas",
+    "view_reports": "Ver Informes"
+  },
+  "stats": {
+    "this_month": "Este Mes",
+    "last_month": "Mes Anterior",
+    "year_to_date": "Año hasta la Fecha",
+    "total_transactions": "Total de Transacciones",
+    "average_expense": "Gasto Promedio",
+    "largest_expense": "Mayor Gasto"
+  }
+}

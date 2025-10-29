@@ -1,0 +1,66 @@
+{
+  "title": "Transações",
+  "add_transaction": "Nova Transação",
+  "edit_transaction": "Editar Transação",
+  "transaction_list": "Lista de Transações",
+  "fields": {
+    "description": "Descrição",
+    "amount": "Valor",
+    "type": "Tipo",
+    "category": "Categoria",
+    "date": "Data",
+    "due_date": "Data de Vencimento",
+    "received_date": "Data de Recebimento",
+    "status": "Status",
+    "notes": "Observações"
+  },
+  "placeholders": {
+    "description": "Ex: Conta de luz",
+    "amount": "0,00",
+    "notes": "Observações adicionais (opcional)"
+  },
+  "types": {
+    "expense": "Despesa",
+    "income": "Receita"
+  },
+  "categories": {
+    "food": "Alimentação",
+    "transport": "Transporte",
+    "health": "Saúde",
+    "education": "Educação",
+    "entertainment": "Entretenimento",
+    "utilities": "Utilidades",
+    "housing": "Moradia",
+    "clothing": "Vestuário",
+    "other": "Outros",
+    "salary": "Salário",
+    "freelance": "Freelance",
+    "investment": "Investimento",
+    "gift": "Presente"
+  },
+  "status_options": {
+    "pending": "Pendente",
+    "paid": "Pago",
+    "received": "Recebido",
+    "overdue": "Vencido",
+    "cancelled": "Cancelado"
+  },
+  "messages": {
+    "created_success": "Transação criada com sucesso",
+    "updated_success": "Transação atualizada com sucesso",
+    "deleted_success": "Transação excluída com sucesso",
+    "error_creating": "Erro ao criar transação",
+    "error_updating": "Erro ao atualizar transação",
+    "error_deleting": "Erro ao excluir transação",
+    "confirm_delete": "Tem certeza que deseja excluir esta transação?",
+    "no_transactions": "Nenhuma transação encontrada"
+  },
+  "filters": {
+    "all": "Todas",
+    "expenses": "Despesas",
+    "incomes": "Receitas",
+    "this_month": "Este Mês",
+    "last_month": "Mês Anterior",
+    "date_range": "Período Personalizado"
+  }
+}

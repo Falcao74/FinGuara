@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-md-3">
+    <div class="card auth-card text-bg-success mb-3">
+      <div class="card-header">Receitas (mês)</div>
+      <div class="card-body"><h4>R$ {{ '%.2f'|format(incomes) }}</h4></div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card auth-card text-bg-danger mb-3">
+      <div class="card-header">Despesas (mês)</div>
+      <div class="card-body"><h4>R$ {{ '%.2f'|format(expenses) }}</h4></div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card auth-card text-bg-primary mb-3">
+      <div class="card-header">Saldo (mês)</div>
+      <div class="card-body"><h4>R$ {{ '%.2f'|format(balance) }}</h4></div>
+    </div>
+  </div>
+</div>
+
+<div class="card auth-card mb-3">
+  <div class="card-header"><h5 class="m-0">Próximas contas</h5></div>
+  <div class="card-body p-0">
+<table class="table table-striped mb-0">
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Categoria</th>
+      <th>Vencimento</th>
+      <th>Status</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tx in upcoming %}
+    <tr>
+      <td>{{ tx.description }}</td>
+      <td>{{ tx.category }}</td>
+      <td>{{ tx.due_date.strftime('%d/%m/%Y') if tx.due_date }}</td>
+      <td>{{ tx.status }}</td>
+      <td>R$ {{ '%.2f'|format(tx.value) }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+  </div>
+</div>
+
+<a class="btn btn-secondary" href="{{ url_for('main.transactions') }}">Registrar transações</a>
+{% endblock %}

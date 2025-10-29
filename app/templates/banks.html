@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Bancos{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-md-6">
+    <div class="card auth-card mb-3">
+      <div class="card-header"><h4 class="m-0">Cadastrar Banco</h4></div>
+      <div class="card-body">
+        <form method="post" action="{{ url_for('main.banks') }}">
+          <div class="mb-3">
+            <label class="form-label">Nome do Banco</label>
+            <input class="form-control" name="bank_name" placeholder="Ex.: Banco do Brasil" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Código (opcional)</label>
+            <input class="form-control" name="bank_code" placeholder="Ex.: 001">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Observações</label>
+            <textarea class="form-control" name="notes" rows="2" placeholder="Informações adicionais"></textarea>
+          </div>
+          <button class="btn btn-primary">Salvar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card auth-card mb-3">
+      <div class="card-header"><h4 class="m-0">Meus Bancos</h4></div>
+      <div class="card-body">
+        {% if banks and banks|length > 0 %}
+          <table class="table table-sm table-hover align-middle">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Código</th>
+                <th>Criado em</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for b in banks %}
+              <tr>
+                <td>{{ b.name }}</td>
+                <td>{{ b.code or '-' }}</td>
+                <td>{{ b.created_at.strftime('%d/%m/%Y %H:%M') }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p class="text-muted">Nenhum banco cadastrado ainda.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

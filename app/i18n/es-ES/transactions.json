@@ -1,0 +1,66 @@
+{
+  "title": "Transacciones",
+  "add_transaction": "Nueva Transacción",
+  "edit_transaction": "Editar Transacción",
+  "transaction_list": "Lista de Transacciones",
+  "fields": {
+    "description": "Descripción",
+    "amount": "Importe",
+    "type": "Tipo",
+    "category": "Categoría",
+    "date": "Fecha",
+    "due_date": "Fecha de Vencimiento",
+    "received_date": "Fecha de Recepción",
+    "status": "Estado",
+    "notes": "Notas"
+  },
+  "placeholders": {
+    "description": "ej: Factura de electricidad",
+    "amount": "0,00",
+    "notes": "Notas adicionales (opcional)"
+  },
+  "types": {
+    "expense": "Gasto",
+    "income": "Ingreso"
+  },
+  "categories": {
+    "food": "Alimentación",
+    "transport": "Transporte",
+    "health": "Salud",
+    "education": "Educación",
+    "entertainment": "Entretenimiento",
+    "utilities": "Servicios Públicos",
+    "housing": "Vivienda",
+    "clothing": "Ropa",
+    "other": "Otros",
+    "salary": "Salario",
+    "freelance": "Trabajo Independiente",
+    "investment": "Inversión",
+    "gift": "Regalo"
+  },
+  "status_options": {
+    "pending": "Pendiente",
+    "paid": "Pagado",
+    "received": "Recibido",
+    "overdue": "Vencido",
+    "cancelled": "Cancelado"
+  },
+  "messages": {
+    "created_success": "Transacción creada con éxito",
+    "updated_success": "Transacción actualizada con éxito",
+    "deleted_success": "Transacción eliminada con éxito",
+    "error_creating": "Error al crear transacción",
+    "error_updating": "Error al actualizar transacción",
+    "error_deleting": "Error al eliminar transacción",
+    "confirm_delete": "¿Está seguro de que desea eliminar esta transacción?",
+    "no_transactions": "No se encontraron transacciones"
+  },
+  "filters": {
+    "all": "Todas",
+    "expenses": "Gastos",
+    "incomes": "Ingresos",
+    "this_month": "Este Mes",
+    "last_month": "Mes Anterior",
+    "date_range": "Rango Personalizado"
+  }
+}

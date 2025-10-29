@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Erro interno{% endblock %}
+{% block content %}
+<div class="full-center">
+  <div class="card shadow p-4" style="max-width: 560px; width: 100%;">
+    <div class="text-center">
+      <div class="display-6">💥 500</div>
+      <p class="text-muted mb-3">Ocorreu um erro inesperado. Já estamos de olho nisso.</p>
+      <a class="btn btn-primary" href="{{ url_for('auth.login') }}">Voltar ao login</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

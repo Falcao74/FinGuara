@@ -1,0 +1,68 @@
+{
+  "title": "Bancos",
+  "add_bank": "Nuevo Banco",
+  "edit_bank": "Editar Banco",
+  "bank_list": "Lista de Bancos",
+  "fields": {
+    "name": "Nombre del Banco",
+    "code": "Código",
+    "website": "Sitio Web",
+    "phone": "Teléfono",
+    "notes": "Notas"
+  },
+  "placeholders": {
+    "name": "ej: Banco Santander",
+    "code": "ej: 0049",
+    "website": "https://www.banco.es",
+    "phone": "+34 912 345 678",
+    "notes": "Información adicional sobre el banco"
+  },
+  "messages": {
+    "created_success": "Banco creado con éxito",
+    "updated_success": "Banco actualizado con éxito",
+    "deleted_success": "Banco eliminado con éxito",
+    "error_creating": "Error al crear banco",
+    "error_updating": "Error al actualizar banco",
+    "error_deleting": "Error al eliminar banco",
+    "confirm_delete": "¿Está seguro de que desea eliminar este banco?",
+    "no_banks": "No hay bancos registrados",
+    "has_accounts": "No se puede eliminar banco con cuentas activas"
+  },
+  "accounts": {
+    "title": "Cuentas",
+    "add_account": "Nueva Cuenta",
+    "edit_account": "Editar Cuenta",
+    "account_list": "Lista de Cuentas",
+    "fields": {
+      "name": "Nombre de la Cuenta",
+      "type": "Tipo de Cuenta",
+      "number": "Número",
+      "agency": "Sucursal",
+      "balance": "Saldo Inicial",
+      "notes": "Notas"
+    },
+    "types": {
+      "checking": "Cuenta Corriente",
+      "savings": "Cuenta de Ahorros",
+      "investment": "Cuenta de Inversión",
+      "credit": "Tarjeta de Crédito"
+    },
+    "placeholders": {
+      "name": "ej: Cuenta Principal",
+      "number": "ES12 3456 7890 1234 5678 90",
+      "agency": "1234",
+      "balance": "0,00",
+      "notes": "Información adicional sobre la cuenta"
+    },
+    "messages": {
+      "created_success": "Cuenta creada con éxito",
+      "updated_success": "Cuenta actualizada con éxito",
+      "deleted_success": "Cuenta eliminada con éxito",
+      "error_creating": "Error al crear cuenta",
+      "error_updating": "Error al actualizar cuenta",
+      "error_deleting": "Error al eliminar cuenta",
+      "confirm_delete": "¿Está seguro de que desea eliminar esta cuenta?",
+      "no_accounts": "No hay cuentas registradas"
+    }
+  }
+}

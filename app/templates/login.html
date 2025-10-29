@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div id="login-area" class="full-center" role="region" aria-label="Área de autenticação">
+  <div class="auth-card login-card card shadow-lg p-3" style="max-width: 420px; width: 100%;" aria-labelledby="loginTitle">
+    <div class="text-center mb-3">
+      <img src="{{ url_for('static', filename='logotipo.png') }}" alt="FinGuará" height="64" class="brand-logo"
+           onerror='this.onerror=null;this.src={{ url_for("static", filename="logo-fallback.svg") | tojson }};'>
+      <h4 id="loginTitle" class="mt-1 mb-2">Bem-vindo ao FinGuará</h4>
+      <p class="text-muted mb-2">Organize suas finanças com design e facilidade</p>
+    </div>
+    <form method="post" novalidate onsubmit="return validateLogin(this)" aria-describedby="loginHelp">
+      <div class="mb-2">
+        <label class="form-label" for="usernameInput">Usuário</label>
+        <div class="input-group">
+          <span class="input-group-text" aria-hidden="true"><i class="bi bi-person"></i></span>
+          <input id="usernameInput" type="text" name="username" class="form-control" required minlength="3" maxlength="50" placeholder="Seu usuário" value="{{ remembered_username or '' }}" autocomplete="username" aria-required="true" aria-describedby="usernameHelp">
+        </div>
+        <div id="usernameHelp" class="form-text">Mínimo 3 caracteres.</div>
+      </div>
+      <div class="mb-2">
+        <label class="form-label" for="passwordInput">Senha</label>
+        <div class="input-group">
+          <span class="input-group-text" aria-hidden="true"><i class="bi bi-lock"></i></span>
+          <input id="passwordInput" type="password" name="password" class="form-control" required minlength="6" maxlength="128" placeholder="Sua senha" autocomplete="current-password" autofocus aria-required="true" aria-describedby="passwordHelp">
+        </div>
+        <div id="passwordHelp" class="form-text">Mínimo 6 caracteres.</div>
+      </div>
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox" value="on" id="rememberUsername" name="remember_username" {% if remembered_username %}checked{% endif %}>
+        <label class="form-check-label" for="rememberUsername">Lembrar meu usuário</label>
+        <div id="loginHelp" class="visually-hidden">Marque para lembrar seu nome de usuário por 30 dias.</div>
+      </div>
+      <div class="d-grid">
+        <button class="btn btn-primary" type="submit" aria-label="Entrar">Entrar</button>
+      </div>
+      <div class="text-center mt-1">
+        <a class="btn btn-link" href="{{ url_for('auth.signup') }}">Criar usuário</a>
+      </div>
+    </form>
+    {% if show_initial_admin_banner %}
+    <div class="alert alert-info mt-3">
+      Usuário inicial: <strong>admin</strong> | Senha: <strong>admin</strong>.<br>
+      Após cadastrar um usuário, o admin será removido automaticamente.
+    </div>
+    {% endif %}
+</div>
+</div>
+<script>
+function validateLogin(form){
+  const u = form.username.value.trim();
+  const p = form.password.value;
+  if(u.length < 3){ alert('Usuário deve ter ao menos 3 caracteres'); return false; }
+  if(p.length < 4){ alert('Senha deve ter ao menos 4 caracteres'); return false; }
+  return true;
+}
+ // Centralização dinâmica considerando a altura do rodapé fixo
+ document.addEventListener('DOMContentLoaded', function(){
+   const footer = document.querySelector('.site-footer');
+   const area = document.getElementById('login-area');
+   function adjustLoginArea(){
+     if(!footer || !area) return;
+     const vh = window.innerHeight || document.documentElement.clientHeight;
+     const fh = footer.getBoundingClientRect().height;
+     const available = Math.max(240, vh - fh - 8);
+     area.style.minHeight = available + 'px';
+   }
+   adjustLoginArea();
+   window.addEventListener('resize', adjustLoginArea);
+ });
+</script>
+{% endblock %}

@@ -1,0 +1,67 @@
+{
+  "app": {
+    "name": "FinGuará",
+    "tagline": "Sistema de Gerenciamento Financeiro Pessoal"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "transactions": "Transações",
+    "banks": "Bancos",
+    "accounts": "Contas",
+    "logout": "Sair",
+    "language": "Idioma"
+  },
+  "actions": {
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "add": "Adicionar",
+    "create": "Criar",
+    "update": "Atualizar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "clear": "Limpar",
+    "submit": "Enviar",
+    "back": "Voltar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "close": "Fechar",
+    "confirm": "Confirmar"
+  },
+  "status": {
+    "active": "Ativo",
+    "inactive": "Inativo",
+    "pending": "Pendente",
+    "completed": "Concluído",
+    "cancelled": "Cancelado",
+    "paid": "Pago",
+    "overdue": "Vencido"
+  },
+  "messages": {
+    "loading": "Carregando...",
+    "no_data": "Nenhum dado encontrado",
+    "error_generic": "Ocorreu um erro inesperado",
+    "success_generic": "Operação realizada com sucesso",
+    "confirm_delete": "Tem certeza que deseja excluir este item?",
+    "unsaved_changes": "Você tem alterações não salvas. Deseja continuar?"
+  },
+  "validation": {
+    "required": "Este campo é obrigatório",
+    "invalid_email": "Email inválido",
+    "invalid_password": "Senha deve ter pelo menos 4 caracteres",
+    "passwords_dont_match": "As senhas não coincidem",
+    "invalid_number": "Número inválido",
+    "invalid_date": "Data inválida",
+    "min_length": "Deve ter pelo menos {min} caracteres",
+    "max_length": "Deve ter no máximo {max} caracteres"
+  },
+  "accessibility": {
+    "skip_to_content": "Pular para o conteúdo principal",
+    "menu_toggle": "Alternar menu de navegação",
+    "language_selector": "Seletor de idioma",
+    "close_dialog": "Fechar diálogo",
+    "open_menu": "Abrir menu",
+    "loading_content": "Carregando conteúdo"
+  }
+}

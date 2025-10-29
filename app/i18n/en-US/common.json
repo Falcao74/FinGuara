@@ -1,0 +1,97 @@
+{
+  "app_name": "Expense Tracker",
+  "navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "transactions": "Transactions",
+    "banks": "Banks",
+    "accounts": "Accounts",
+    "reports": "Reports",
+    "settings": "Settings",
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add",
+    "create": "Create",
+    "update": "Update",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "import": "Import",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "confirm": "Confirm",
+    "close": "Close",
+    "view": "View",
+    "download": "Download"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "pending": "Pending",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "processing": "Processing",
+    "error": "Error",
+    "success": "Success"
+  },
+  "messages": {
+    "loading": "Loading...",
+    "no_data": "No data available",
+    "error_occurred": "An error occurred",
+    "success_operation": "Operation completed successfully",
+    "confirm_action": "Are you sure you want to proceed?",
+    "unsaved_changes": "You have unsaved changes. Do you want to continue?",
+    "required_field": "This field is required",
+    "invalid_format": "Invalid format",
+    "operation_cancelled": "Operation cancelled"
+  },
+  "validation": {
+    "required": "This field is required",
+    "min_length": "Minimum {count} characters required",
+    "max_length": "Maximum {count} characters allowed",
+    "invalid_email": "Invalid email format",
+    "invalid_number": "Must be a valid number",
+    "invalid_date": "Invalid date format",
+    "passwords_match": "Passwords must match"
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to main content",
+    "menu_toggle": "Toggle navigation menu",
+    "language_selector": "Select language",
+    "current_language": "Current language: {language}",
+    "close_dialog": "Close dialog",
+    "loading_content": "Loading content, please wait",
+    "error_message": "Error message",
+    "success_message": "Success message",
+    "required_field_indicator": "Required field",
+    "sort_ascending": "Sort ascending",
+    "sort_descending": "Sort descending",
+    "page_navigation": "Page navigation"
+  },
+  "language": {
+    "portuguese": "Portuguese",
+    "english": "English", 
+    "spanish": "Spanish",
+    "select_language": "Select Language",
+    "language_changed": "Language changed to {language}"
+  },
+  "date_formats": {
+    "short": "MM/DD/YYYY",
+    "long": "MMMM D, YYYY",
+    "with_time": "MM/DD/YYYY HH:mm"
+  },
+  "currency": {
+    "symbol": "$",
+    "format": "${amount}",
+    "decimal_separator": ".",
+    "thousand_separator": ","
+  }
+}

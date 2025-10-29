@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Criar Usuário{% endblock %}
+{% block content %}
+<div class="full-center">
+  <div class="auth-card card shadow-lg p-4" style="max-width: 520px; width: 100%;">
+    <div class="text-center mb-3">
+      <img src="{{ url_for('static', filename='logotipo.png') }}" alt="FinGuará" height="64" class="brand-logo mb-2"
+           onerror='this.onerror=null;this.src={{ url_for("static", filename="logo-fallback.svg") | tojson }};'>
+      <h1 class="h4 mb-1">Criar sua conta</h1>
+      <p class="text-muted">Comece a organizar suas finanças com estilo.</p>
+    </div>
+    <form method="post" novalidate>
+      <div class="mb-3">
+        <label class="form-label">Usuário</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-person"></i></span>
+          <input type="text" name="username" class="form-control" required minlength="3" maxlength="50" placeholder="seu_usuario">
+        </div>
+        <div class="form-text">Mínimo 3 caracteres.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Senha</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-lock"></i></span>
+          <input type="password" name="password" id="password" class="form-control" required minlength="6" maxlength="128" placeholder="••••••">
+        </div>
+        <div class="form-text">Mínimo 6 caracteres.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Confirmar Senha</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-shield-check"></i></span>
+          <input type="password" name="confirm" id="confirm" class="form-control" required minlength="6" maxlength="128" placeholder="repita a senha"
+                 oninput="this.setCustomValidity(this.value !== document.getElementById('password').value ? 'As senhas não coincidem' : '')">
+        </div>
+      </div>
+      <div class="d-grid gap-2">
+        <button class="btn btn-success btn-lg">Cadastrar</button>
+        <a class="btn btn-outline-secondary" href="{{ url_for('auth.login') }}">Voltar ao login</a>
+      </div>
+    </form>
+  </div>
+  {% if show_initial_admin_banner %}
+  <div class="alert alert-info mt-3">
+    Usuário inicial: <strong>admin</strong> | Senha: <strong>admin</strong>.<br>
+    Após cadastrar um usuário, o admin será removido automaticamente.
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

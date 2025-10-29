@@ -1,0 +1,66 @@
+{
+  "title": "Transactions",
+  "add_transaction": "New Transaction",
+  "edit_transaction": "Edit Transaction",
+  "transaction_list": "Transaction List",
+  "fields": {
+    "description": "Description",
+    "amount": "Amount",
+    "type": "Type",
+    "category": "Category",
+    "date": "Date",
+    "due_date": "Due Date",
+    "received_date": "Received Date",
+    "status": "Status",
+    "notes": "Notes"
+  },
+  "placeholders": {
+    "description": "e.g., Electric bill",
+    "amount": "0.00",
+    "notes": "Additional notes (optional)"
+  },
+  "types": {
+    "expense": "Expense",
+    "income": "Income"
+  },
+  "categories": {
+    "food": "Food",
+    "transport": "Transportation",
+    "health": "Healthcare",
+    "education": "Education",
+    "entertainment": "Entertainment",
+    "utilities": "Utilities",
+    "housing": "Housing",
+    "clothing": "Clothing",
+    "other": "Other",
+    "salary": "Salary",
+    "freelance": "Freelance",
+    "investment": "Investment",
+    "gift": "Gift"
+  },
+  "status_options": {
+    "pending": "Pending",
+    "paid": "Paid",
+    "received": "Received",
+    "overdue": "Overdue",
+    "cancelled": "Cancelled"
+  },
+  "messages": {
+    "created_success": "Transaction created successfully",
+    "updated_success": "Transaction updated successfully",
+    "deleted_success": "Transaction deleted successfully",
+    "error_creating": "Error creating transaction",
+    "error_updating": "Error updating transaction",
+    "error_deleting": "Error deleting transaction",
+    "confirm_delete": "Are you sure you want to delete this transaction?",
+    "no_transactions": "No transactions found"
+  },
+  "filters": {
+    "all": "All",
+    "expenses": "Expenses",
+    "incomes": "Income",
+    "this_month": "This Month",
+    "last_month": "Last Month",
+    "date_range": "Custom Range"
+  }
+}

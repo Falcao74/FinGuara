@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% block title %}Transações{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-md-6">
+    <div class="card auth-card mb-3">
+      <div class="card-header"><h4 class="m-0" id="nova-despesa">Nova Despesa</h4></div>
+      <div class="card-body">
+    <form method="post">
+      <input type="hidden" name="kind" value="despesa">
+      <div class="mb-2">
+        <label class="form-label">Descrição</label>
+        <input class="form-control" name="description" required minlength="5">
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Valor</label>
+        <input class="form-control" name="value" required>
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Vencimento (DD/MM/YYYY)</label>
+        <input class="form-control" name="due_date">
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Pagamento (opcional)</label>
+        <input class="form-control" name="payment_date">
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Status</label>
+        <select class="form-select" name="status">
+          <option>Pendente</option>
+          <option>Pago</option>
+          <option>Vencido</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Tipo</label>
+        <select class="form-select" name="expense_type">
+          <option>Cartão</option>
+          <option>Dívida</option>
+          <option>Conta de consumo</option>
+          <option>Outros</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Categoria</label>
+        <input class="form-control" name="category" placeholder="Luz, Água, Aluguel, etc">
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Método de pagamento</label>
+        <select class="form-select" name="payment_method">
+          <option>PIX</option>
+          <option>Boleto</option>
+          <option>Débito</option>
+          <option>Crédito</option>
+          <option>Dinheiro</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Observações (opcional)</label>
+        <textarea class="form-control" name="notes" rows="2"></textarea>
+      </div>
+      <button class="btn btn-danger">Adicionar Despesa</button>
+    </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card auth-card mb-3">
+      <div class="card-header"><h4 class="m-0" id="nova-receita">Nova Receita</h4></div>
+      <div class="card-body">
+    <form method="post">
+      <input type="hidden" name="kind" value="receita">
+      <div class="mb-2">
+        <label class="form-label">Descrição</label>
+        <input class="form-control" name="description" required minlength="5" placeholder="Salário, Autônomo, INSS, etc">
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Valor</label>
+        <input class="form-control" name="value" required>
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Recebimento (DD/MM/YYYY)</label>
+        <input class="form-control" name="received_date">
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Fonte</label>
+        <input class="form-control" name="source" placeholder="Empresa, Cliente, Plataforma">
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Categoria</label>
+        <select class="form-select" name="income_category">
+          <option>Renda fixa</option>
+          <option>Variável</option>
+          <option>Extra</option>
+        </select>
+      </div>
+      <button class="btn btn-success">Adicionar Receita</button>
+    </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card auth-card">
+  <div class="card-header"><h5 class="m-0">Transações recentes</h5></div>
+  <div class="card-body p-0">
+<table class="table table-striped mb-0">
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Valor</th>
+      <th>Data</th>
+      <th>Categoria</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tx in transactions %}
+    <tr>
+      <td>
+        {% set kind_class = 'bg-secondary' %}
+        {% if tx.kind == 'despesa' %}{% set kind_class = 'bg-danger' %}{% elif tx.kind == 'receita' %}{% set kind_class = 'bg-success' %}{% endif %}
+        <span class="badge {{ kind_class }}">{{ tx.kind }}</span>
+      </td>
+      <td>{{ tx.description }}</td>
+      <td>R$ {{ '%.2f'|format(tx.value) }}</td>
+      <td>
+        {% if tx.kind == 'despesa' %}
+          {{ tx.due_date.strftime('%d/%m/%Y') if tx.due_date }}
+        {% else %}
+          {{ tx.received_date.strftime('%d/%m/%Y') if tx.received_date }}
+        {% endif %}
+      </td>
+      <td>{{ tx.category or tx.income_category }}</td>
+      <td>
+        {% set status_class = 'bg-secondary' %}
+        {% if tx.status == 'Pendente' %}{% set status_class = 'bg-warning text-dark' %}
+        {% elif tx.status == 'Pago' %}{% set status_class = 'bg-success' %}
+        {% elif tx.status == 'Vencido' %}{% set status_class = 'bg-danger' %}{% endif %}
+        <span class="badge {{ status_class }}">{{ tx.status }}</span>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+  </div>
+</div>
+{% endblock %}

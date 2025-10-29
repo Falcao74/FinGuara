@@ -1,0 +1,68 @@
+{
+  "title": "Bancos",
+  "add_bank": "Novo Banco",
+  "edit_bank": "Editar Banco",
+  "bank_list": "Lista de Bancos",
+  "fields": {
+    "name": "Nome do Banco",
+    "code": "Código",
+    "website": "Site",
+    "phone": "Telefone",
+    "notes": "Observações"
+  },
+  "placeholders": {
+    "name": "Ex: Banco do Brasil",
+    "code": "Ex: 001",
+    "website": "https://www.banco.com.br",
+    "phone": "(11) 1234-5678",
+    "notes": "Informações adicionais sobre o banco"
+  },
+  "messages": {
+    "created_success": "Banco criado com sucesso",
+    "updated_success": "Banco atualizado com sucesso",
+    "deleted_success": "Banco excluído com sucesso",
+    "error_creating": "Erro ao criar banco",
+    "error_updating": "Erro ao atualizar banco",
+    "error_deleting": "Erro ao excluir banco",
+    "confirm_delete": "Tem certeza que deseja excluir este banco?",
+    "no_banks": "Nenhum banco cadastrado",
+    "has_accounts": "Não é possível excluir banco com contas ativas"
+  },
+  "accounts": {
+    "title": "Contas",
+    "add_account": "Nova Conta",
+    "edit_account": "Editar Conta",
+    "account_list": "Lista de Contas",
+    "fields": {
+      "name": "Nome da Conta",
+      "type": "Tipo de Conta",
+      "number": "Número",
+      "agency": "Agência",
+      "balance": "Saldo Inicial",
+      "notes": "Observações"
+    },
+    "types": {
+      "checking": "Conta Corrente",
+      "savings": "Poupança",
+      "investment": "Investimento",
+      "credit": "Cartão de Crédito"
+    },
+    "placeholders": {
+      "name": "Ex: Conta Principal",
+      "number": "12345-6",
+      "agency": "1234",
+      "balance": "0,00",
+      "notes": "Informações adicionais sobre a conta"
+    },
+    "messages": {
+      "created_success": "Conta criada com sucesso",
+      "updated_success": "Conta atualizada com sucesso",
+      "deleted_success": "Conta excluída com sucesso",
+      "error_creating": "Erro ao criar conta",
+      "error_updating": "Erro ao atualizar conta",
+      "error_deleting": "Erro ao excluir conta",
+      "confirm_delete": "Tem certeza que deseja excluir esta conta?",
+      "no_accounts": "Nenhuma conta cadastrada"
+    }
+  }
+}

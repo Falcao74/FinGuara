@@ -1,0 +1,7 @@
+Flask>=2.3
+Flask-SQLAlchemy>=3.0
+Flask-Login>=0.6
+Flasgger>=0.9.7b0
+Flask-Session>=0.5.0
+redis>=5.0.0
+pytest>=7.0

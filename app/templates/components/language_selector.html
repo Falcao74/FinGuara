@@ -1,0 +1,238 @@
+<!--
+Componente Seletor de Idioma
+Permite alternar entre português, inglês e espanhol
+Inclui recursos de acessibilidade e suporte para usuários com autismo
+-->
+
+<div class="language-selector" id="languageSelector" role="region" aria-label="{{ _('common.accessibility.language_selector') }}">
+    <!-- Versão com botões (padrão) -->
+    <div class="language-buttons" id="languageButtons">
+        <button type="button" 
+                class="language-button {% if get_current_language() == 'pt-BR' %}active{% endif %}" 
+                data-language="pt-BR"
+                aria-pressed="{% if get_current_language() == 'pt-BR' %}true{% else %}false{% endif %}"
+                title="{{ _('common.languages.portuguese') }}">
+            <span class="language-flag pt-br" aria-hidden="true"></span>
+            <span class="language-text">{{ _('common.languages.portuguese_short') }}</span>
+            <span class="sr-only">{{ _('common.accessibility.select_language', language=_('common.languages.portuguese')) }}</span>
+        </button>
+        
+        <button type="button" 
+                class="language-button {% if get_current_language() == 'en-US' %}active{% endif %}" 
+                data-language="en-US"
+                aria-pressed="{% if get_current_language() == 'en-US' %}true{% else %}false{% endif %}"
+                title="{{ _('common.languages.english') }}">
+            <span class="language-flag en-us" aria-hidden="true"></span>
+            <span class="language-text">{{ _('common.languages.english_short') }}</span>
+            <span class="sr-only">{{ _('common.accessibility.select_language', language=_('common.languages.english')) }}</span>
+        </button>
+        
+        <button type="button" 
+                class="language-button {% if get_current_language() == 'es-ES' %}active{% endif %}" 
+                data-language="es-ES"
+                aria-pressed="{% if get_current_language() == 'es-ES' %}true{% else %}false{% endif %}"
+                title="{{ _('common.languages.spanish') }}">
+            <span class="language-flag es-es" aria-hidden="true"></span>
+            <span class="language-text">{{ _('common.languages.spanish_short') }}</span>
+            <span class="sr-only">{{ _('common.accessibility.select_language', language=_('common.languages.spanish')) }}</span>
+        </button>
+    </div>
+    
+    <!-- Versão dropdown (alternativa para espaços menores) -->
+    <select class="language-selector-dropdown d-none" 
+            id="languageDropdown" 
+            aria-label="{{ _('common.accessibility.language_selector') }}">
+        <option value="pt-BR" {% if get_current_language() == 'pt-BR' %}selected{% endif %}>
+            🇧🇷 {{ _('common.languages.portuguese') }}
+        </option>
+        <option value="en-US" {% if get_current_language() == 'en-US' %}selected{% endif %}>
+            🇺🇸 {{ _('common.languages.english') }}
+        </option>
+        <option value="es-ES" {% if get_current_language() == 'es-ES' %}selected{% endif %}>
+            🇪🇸 {{ _('common.languages.spanish') }}
+        </option>
+    </select>
+    
+    <!-- Indicador do idioma atual -->
+    <div class="current-language-indicator d-none" id="currentLanguageIndicator">
+        <span class="language-flag {{ get_current_language().lower().replace('-', '-') }}" aria-hidden="true"></span>
+        <span class="sr-only">{{ _('common.accessibility.current_language') }}:</span>
+        <span id="currentLanguageText">{{ get_language_name(get_current_language()) }}</span>
+    </div>
+</div>
+
+<!-- Notificações de mudança de idioma -->
+<div id="languageNotifications" aria-live="polite" aria-atomic="true" class="position-fixed" style="top: 20px; right: 20px; z-index: 9999;">
+    <!-- Notificações serão inseridas aqui dinamicamente -->
+</div>
+
+<!-- Script inline para funcionalidade básica -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const languageButtons = document.querySelectorAll('.language-button');
+    const languageDropdown = document.getElementById('languageDropdown');
+    const notificationsContainer = document.getElementById('languageNotifications');
+    
+    // Função para mostrar notificação
+    function showNotification(message, type = 'success') {
+        const notification = document.createElement('div');
+        notification.className = `language-${type === 'success' ? 'change' : 'error'}-notification`;
+        notification.textContent = message;
+        notification.setAttribute('role', 'alert');
+        
+        notificationsContainer.appendChild(notification);
+        
+        // Remove após 3 segundos
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 3000);
+    }
+    
+    // Função para trocar idioma
+    function changeLanguage(language) {
+        // Adiciona classe de carregamento
+        document.body.classList.add('language-loading');
+        
+        // Faz requisição para trocar idioma
+        fetch('/i18n/set-language', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ language: language })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Atualiza interface usando i18n.js se disponível
+                if (window.I18n) {
+                    window.I18n.setLanguage(language);
+                } else {
+                    // Fallback: recarrega a página
+                    window.location.reload();
+                }
+                
+                showNotification(data.message || 'Idioma alterado com sucesso');
+            } else {
+                showNotification(data.message || 'Erro ao alterar idioma', 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao alterar idioma:', error);
+            showNotification('Erro ao alterar idioma', 'error');
+        })
+        .finally(() => {
+            document.body.classList.remove('language-loading');
+        });
+    }
+    
+    // Event listeners para botões
+    languageButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const language = this.getAttribute('data-language');
+            changeLanguage(language);
+        });
+        
+        // Suporte a teclado
+        button.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+    
+    // Event listener para dropdown
+    if (languageDropdown) {
+        languageDropdown.addEventListener('change', function() {
+            changeLanguage(this.value);
+        });
+    }
+    
+    // Detecta preferência de acessibilidade
+    if (localStorage.getItem('autism-friendly') === 'true') {
+        document.body.classList.add('autism-friendly');
+    }
+    
+    // Detecta preferência por dropdown vs botões
+    if (window.innerWidth < 768 || localStorage.getItem('use-dropdown') === 'true') {
+        document.getElementById('languageButtons').classList.add('d-none');
+        document.getElementById('languageDropdown').classList.remove('d-none');
+    }
+});
+
+// Função global para alternar modo amigável para autismo
+function toggleAutismFriendly() {
+    const isEnabled = document.body.classList.toggle('autism-friendly');
+    localStorage.setItem('autism-friendly', isEnabled.toString());
+    
+    // Notifica mudança
+    const message = isEnabled ? 
+        'Modo acessível para autismo ativado' : 
+        'Modo acessível para autismo desativado';
+    
+    const notification = document.createElement('div');
+    notification.className = 'language-change-notification';
+    notification.textContent = message;
+    notification.setAttribute('role', 'alert');
+    
+    document.getElementById('languageNotifications').appendChild(notification);
+    
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.parentNode.removeChild(notification);
+        }
+    }, 3000);
+}
+
+// Função global para alternar entre botões e dropdown
+function toggleLanguageSelector() {
+    const buttons = document.getElementById('languageButtons');
+    const dropdown = document.getElementById('languageDropdown');
+    
+    if (buttons.classList.contains('d-none')) {
+        buttons.classList.remove('d-none');
+        dropdown.classList.add('d-none');
+        localStorage.setItem('use-dropdown', 'false');
+    } else {
+        buttons.classList.add('d-none');
+        dropdown.classList.remove('d-none');
+        localStorage.setItem('use-dropdown', 'true');
+    }
+}
+</script>
+
+<!-- Estilos específicos do componente -->
+<style>
+/* Estilos específicos que podem sobrescrever o CSS principal se necessário */
+.language-selector .language-button:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Animação suave para mudanças de estado */
+.language-button {
+    transition: all 0.2s ease;
+}
+
+/* Indicador visual para usuários com deficiência visual */
+.language-button.active::after {
+    content: " ✓";
+    font-weight: bold;
+    color: inherit;
+}
+
+/* Melhora contraste em modo escuro */
+@media (prefers-color-scheme: dark) {
+    .language-button {
+        border-color: #6c757d;
+    }
+    
+    .language-button:hover {
+        border-color: #007bff;
+    }
+}
+</style>

@@ -1,0 +1,97 @@
+{
+  "app_name": "Control de Gastos",
+  "navigation": {
+    "home": "Inicio",
+    "dashboard": "Panel",
+    "transactions": "Transacciones",
+    "banks": "Bancos",
+    "accounts": "Cuentas",
+    "reports": "Informes",
+    "settings": "Configuración",
+    "profile": "Perfil",
+    "logout": "Cerrar Sesión"
+  },
+  "actions": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "add": "Añadir",
+    "create": "Crear",
+    "update": "Actualizar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "export": "Exportar",
+    "import": "Importar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Enviar",
+    "confirm": "Confirmar",
+    "close": "Cerrar",
+    "view": "Ver",
+    "download": "Descargar"
+  },
+  "status": {
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "pending": "Pendiente",
+    "completed": "Completado",
+    "cancelled": "Cancelado",
+    "processing": "Procesando",
+    "error": "Error",
+    "success": "Éxito"
+  },
+  "messages": {
+    "loading": "Cargando...",
+    "no_data": "No hay datos disponibles",
+    "error_occurred": "Ha ocurrido un error",
+    "success_operation": "Operación completada con éxito",
+    "confirm_action": "¿Está seguro de que desea continuar?",
+    "unsaved_changes": "Tiene cambios sin guardar. ¿Desea continuar?",
+    "required_field": "Este campo es obligatorio",
+    "invalid_format": "Formato inválido",
+    "operation_cancelled": "Operación cancelada"
+  },
+  "validation": {
+    "required": "Este campo es obligatorio",
+    "min_length": "Se requieren mínimo {count} caracteres",
+    "max_length": "Máximo {count} caracteres permitidos",
+    "invalid_email": "Formato de email inválido",
+    "invalid_number": "Debe ser un número válido",
+    "invalid_date": "Formato de fecha inválido",
+    "passwords_match": "Las contraseñas deben coincidir"
+  },
+  "accessibility": {
+    "skip_to_content": "Saltar al contenido principal",
+    "menu_toggle": "Alternar menú de navegación",
+    "language_selector": "Seleccionar idioma",
+    "current_language": "Idioma actual: {language}",
+    "close_dialog": "Cerrar diálogo",
+    "loading_content": "Cargando contenido, por favor espere",
+    "error_message": "Mensaje de error",
+    "success_message": "Mensaje de éxito",
+    "required_field_indicator": "Campo obligatorio",
+    "sort_ascending": "Ordenar ascendente",
+    "sort_descending": "Ordenar descendente",
+    "page_navigation": "Navegación de página"
+  },
+  "language": {
+    "portuguese": "Portugués",
+    "english": "Inglés", 
+    "spanish": "Español",
+    "select_language": "Seleccionar Idioma",
+    "language_changed": "Idioma cambiado a {language}"
+  },
+  "date_formats": {
+    "short": "DD/MM/YYYY",
+    "long": "D [de] MMMM [de] YYYY",
+    "with_time": "DD/MM/YYYY HH:mm"
+  },
+  "currency": {
+    "symbol": "€",
+    "format": "{amount} €",
+    "decimal_separator": ",",
+    "thousand_separator": "."
+  }
+}

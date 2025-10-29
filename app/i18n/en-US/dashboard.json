@@ -1,0 +1,36 @@
+{
+  "title": "Dashboard",
+  "welcome": "Hello, {username}",
+  "summary": {
+    "title": "Monthly Summary",
+    "expenses": "Expenses",
+    "incomes": "Income", 
+    "balance": "Balance",
+    "positive_balance": "Positive balance",
+    "negative_balance": "Negative balance"
+  },
+  "upcoming": {
+    "title": "Upcoming Bills",
+    "no_bills": "No pending bills",
+    "due_date": "Due Date",
+    "amount": "Amount",
+    "description": "Description",
+    "status": "Status",
+    "view_all": "View all transactions"
+  },
+  "quick_actions": {
+    "title": "Quick Actions",
+    "add_expense": "Add Expense",
+    "add_income": "Add Income",
+    "manage_accounts": "Manage Accounts",
+    "view_reports": "View Reports"
+  },
+  "stats": {
+    "this_month": "This Month",
+    "last_month": "Last Month",
+    "year_to_date": "Year to Date",
+    "total_transactions": "Total Transactions",
+    "average_expense": "Average Expense",
+    "largest_expense": "Largest Expense"
+  }
+}

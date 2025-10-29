@@ -1,0 +1,36 @@
+{
+  "title": "Dashboard",
+  "welcome": "Olá, {username}",
+  "summary": {
+    "title": "Resumo do Mês",
+    "expenses": "Despesas",
+    "incomes": "Receitas", 
+    "balance": "Saldo",
+    "positive_balance": "Saldo positivo",
+    "negative_balance": "Saldo negativo"
+  },
+  "upcoming": {
+    "title": "Próximas Contas",
+    "no_bills": "Nenhuma conta pendente",
+    "due_date": "Vencimento",
+    "amount": "Valor",
+    "description": "Descrição",
+    "status": "Status",
+    "view_all": "Ver todas as transações"
+  },
+  "quick_actions": {
+    "title": "Ações Rápidas",
+    "add_expense": "Adicionar Despesa",
+    "add_income": "Adicionar Receita",
+    "manage_accounts": "Gerenciar Contas",
+    "view_reports": "Ver Relatórios"
+  },
+  "stats": {
+    "this_month": "Este Mês",
+    "last_month": "Mês Anterior",
+    "year_to_date": "Ano até Agora",
+    "total_transactions": "Total de Transações",
+    "average_expense": "Despesa Média",
+    "largest_expense": "Maior Despesa"
+  }
+}
