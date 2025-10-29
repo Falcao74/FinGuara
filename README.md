@@ -2,6 +2,8 @@
 
 FinGuará é um sistema de controle de gastos pessoal construído em Flask, com autenticação segura, internacionalização e uma interface responsiva.
 
+![CI](https://github.com/Falcao74/FinGuara/actions/workflows/ci.yml/badge.svg)
+
 ## Requisitos do Sistema
 - Python 3.11+
 - Pip e virtualenv (opcional)
@@ -46,6 +48,8 @@ Todos os testes unitários e de integração passaram. Lista de casos:
 
 FinGuará is a personal expense tracker built with Flask, featuring secure authentication, internationalization, and a responsive UI.
 
+![CI](https://github.com/Falcao74/FinGuara/actions/workflows/ci.yml/badge.svg)
+
 ## Database Setup
 - Optional: create and activate a virtual environment.
 - Install dependencies: `pip install -r requirements.txt`
@@ -62,6 +66,8 @@ All unit and integration tests passed. See the list above for exact test cases.
 # Versión en Español
 
 FinGuará es un sistema de control de gastos personal hecho con Flask, con autenticación segura, internacionalización y una interfaz responsiva.
+
+![CI](https://github.com/Falcao74/FinGuara/actions/workflows/ci.yml/badge.svg)
 
 ## Creación de la base de datos
 - Opcional: crea y activa un entorno virtual.
